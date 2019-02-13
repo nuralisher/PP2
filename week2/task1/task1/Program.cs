@@ -5,23 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace task4
+namespace task1
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
-            
-            string path1 = "C:/Users/2017/Desktop/experiment/forexample";
-            string path = "C:/Users/2017/Desktop";
-            string filename = "alisher.txt";
 
-            string sourcefile = Path.Combine(path,filename);
-            string destfile = Path.Combine(path1, filename);
+            StreamReader sr = new StreamReader("C:/Users/2017/Desktop/Новая папка/PP2/week2/task1/intput1.txt");
+            string s = sr.ReadToEnd();
+            int k = 1;
 
-            File.Create(path);
-            File.Copy(sourcefile, destfile, true);
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != s[s.Length - 1 - i])    
+                {
+                    k = 0;
+                }
+            }
+
+            if (k == 1)
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+
         }
     }
 }
