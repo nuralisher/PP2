@@ -47,7 +47,7 @@ namespace task2
             {
                 if (a[i].name == name)
                 {
-                    Console.WriteLine("name: " + a[i].name + " id: " + a[i].id + "year of study: " + a[i].year_of_study);
+                    Console.WriteLine(" name: " + a[i].name + " id: " + a[i].id + " year of study: " + a[i].year_of_study);
                 }
             }
         }
@@ -58,7 +58,7 @@ namespace task2
             {
                 if (a[i].id == id)
                 {
-                    Console.WriteLine("name: " + a[i].name + " id: " + a[i].id + "year of study: " + a[i].year_of_study);
+                    Console.WriteLine(" name: " + a[i].name + " id: " + a[i].id + "year of study: " + a[i].year_of_study);
                 }
             }
         }
@@ -66,45 +66,51 @@ namespace task2
 
         static void Main(string[] args)
         {
+
             Console.WriteLine("Enter amount of students : ");
             int n = int.Parse(Console.ReadLine());//n = amount of student
             Student[] a = new Student[n];
 
-            for (int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
             {
                 Console.WriteLine("Enter name and id through space and press enter to go next student :");
                 string[] str = Console.ReadLine().Split();
                 string name = str[0];
                 string id = str[1];
-                
 
-                a[i] = new Student(name , id );
+
+                a[i] = new Student(name, id);
             }
 
-            Console.Write("Operations :" + '\n' + "1)increment " + '\n'+ "2)write name to access id" + '\n' + "3)write id to access name" + '\n'  + "Enter the number of operation :" + '\n');
-
-            int k = int.Parse(Console.ReadLine());
-
-            if (k == 2)
+            while (true)
             {
-                Console.WriteLine("Enter the name :");
-                string name1 = Console.ReadLine();
+                Console.ReadKey();
+                Console.Write("Operations :" + '\n' + "1)increment " + '\n' + "2)write name to access id" + '\n' + "3)write id to access name" + '\n' + "Enter the number of operation :" + '\n');
 
-                access_to_id(name1, a, n);
-            }else if (k == 1)
-            {
-                Console.WriteLine("Enter the name :");
-                string name1 = Console.ReadLine();
-                change_year(name1, a, n);
-            }else if (k == 3)
-            {
-                Console.WriteLine("Enter the id :");
-                string id = Console.ReadLine();
-                access_to_name(id, a, n);
+                int k = int.Parse(Console.ReadLine());
+
+                if (k == 2)
+                {
+                    Console.WriteLine("Enter the name :");
+                    string name1 = Console.ReadLine();
+
+                    access_to_id(name1, a, n);
+                }
+                else if (k == 1)
+                {
+                    Console.WriteLine("Enter the name :");
+                    string name1 = Console.ReadLine();
+                    change_year(name1, a, n);
+                }
+                else if (k == 3)
+                {
+                    Console.WriteLine("Enter the id :");
+                    string id = Console.ReadLine();
+                    access_to_name(id, a, n);
+                }
+
             }
-
-
-            
         }
+        
     }
 }

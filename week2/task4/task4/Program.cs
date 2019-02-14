@@ -12,8 +12,8 @@ namespace task4
         static void Main(string[] args)
         {
             string filename = "alisher.txt";
-            string path = "C:/Users/2017/Desktop/experiment/example";
-            string path1 = "C:/Users/2017/Desktop/experiment/forexample";
+            string path = "C:/Users/2017/Desktop/experiment/new";
+            string path1 = "C:/Users/2017/Desktop/experiment/zxc";
 
             string s = Path.Combine(path, filename);
             string s1 = Path.Combine(path1, filename);
