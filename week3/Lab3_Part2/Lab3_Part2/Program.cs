@@ -151,7 +151,18 @@ namespace Lab3_Part2
                 }
                 if (ki.Key == ConsoleKey.Delete)
                 {
-                    fsi.Delete();
+                    if (fsi.GetType() == typeof(DirectoryInfo))
+                    {
+                        Directory.Delete(fsi.FullName, true);
+                    }
+                    else
+                    {
+                        File.Delete(fsi.FullName);
+                    }
+                    if (cursor != 0)
+                    {
+                        cursor--;
+                    }
 
                 }
                 if (ki.Key == ConsoleKey.S)
@@ -195,7 +206,7 @@ namespace Lab3_Part2
     {
         static void Main(string[] args)
         {
-            string path = "C:/Users/2017/Desktop/experiment";
+            string path =@"C:\Users\2017\Desktop\experiment";
             Farmanager farman = new Farmanager(path);
             farman.start();
 
